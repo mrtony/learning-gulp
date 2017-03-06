@@ -11,8 +11,9 @@
   <link rel="stylesheet" href="/bower_components/toastr/toastr.css" />
   <!-- endbower -->
   
-  <!-- Customer CSS here -->
-  <link href="content/css/site.css" rel="stylesheet" />
+  <!-- inject:css -->
+  <link rel="stylesheet" href="/src/client/content/css/Site.css">
+  <!-- endinject -->
 </head>
 <body>
 
@@ -44,6 +45,25 @@
 <!-- endbower -->
 
 <!-- inject:js -->
+<script src="/src/client/app/app.module.js"></script>
+<script src="/src/client/app/core/core.module.js"></script>
+<script src="/src/client/app/layout/layout.module.js"></script>
+<script src="/src/client/app/blocks/moment/moment.module.js"></script>
+<script src="/src/client/app/blocks/lodash/lodash.module.js"></script>
+<script src="/src/client/app/blocks/logger/logger.module.js"></script>
+<script src="/src/client/app/components/component1/component1.module.js"></script>
+<script src="/src/client/app/components/component2/component2.module.js"></script>
+<script src="/src/client/app/core/config.js"></script>
+<script src="/src/client/app/core/constants.js"></script>
+<script src="/src/client/app/core/dataservices.js"></script>
+<script src="/src/client/app/layout/config.route.js"></script>
+<script src="/src/client/app/blocks/moment/moment.js"></script>
+<script src="/src/client/app/blocks/lodash/lodash.js"></script>
+<script src="/src/client/app/blocks/logger/logger.js"></script>
+<script src="/src/client/app/components/component1/component1.js"></script>
+<script src="/src/client/app/components/component1/config.route.js"></script>
+<script src="/src/client/app/components/component2/component2.js"></script>
+<script src="/src/client/app/components/component2/config.route.js"></script>
 <!-- endinject -->
 
 </body>

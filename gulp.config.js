@@ -12,7 +12,7 @@ module.exports = function() {
       clientApp + '**/*.js',
       '!' + clientApp + '**/*.spec.js',
     ],
-
+    css: client + 'content/css/Site.css',
     bower: {
       json: require('./bower.json'),
       directory: './bower_components',

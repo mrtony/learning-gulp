@@ -6,7 +6,7 @@ var $ = require('gulp-load-plugins')({lazy: true});
 
 
 gulp.task('wiredep', function() {
-  console.log($.util.colors.green('******start wiredep injection******'));
+  console.log($.util.colors.green('******start wiredep injection: wire up the bower css js and our app js into the html******'));
   //get wiredep default options
   var options = config.getWiredepDefaultOptions();
   var wiredep = require('wiredep').stream;
@@ -14,6 +14,7 @@ gulp.task('wiredep', function() {
   .src(config.index)
   .pipe(wiredep(options))
   .pipe($.inject(gulp.src(config.js)))
+  .pipe($.inject(gulp.src(config.css)))
   .pipe(gulp.dest(config.client));
   
   console.log($.util.colors.green('******end wiredep injection******'));
