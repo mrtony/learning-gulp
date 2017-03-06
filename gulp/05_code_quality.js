@@ -4,19 +4,16 @@ var config = require('./gulp.config')(); //為何加() : 因為它是一個funct
 
 var $ = require('gulp-load-plugins')({lazy: true});
 
-
-gulp.task('wiredep', function() {
-  console.log($.util.colors.green('******start wiredep injection******'));
-  //get wiredep default options
-  var options = config.getWiredepDefaultOptions();
-  var wiredep = require('wiredep').stream;
-  gulp
-  .src(config.index)
-  .pipe(wiredep(options))
-  //.pipe($.inject(gulp.src(config.js)))
-  .pipe(gulp.dest(config.client));
-  
-  console.log($.util.colors.green('******end wiredep injection******'));
+//code quality by jscs, jshint
+gulp.task('vet', function() {
+  log(args);
+  log('Analyze source with JSHint and JSCS');
+  return gulp.src(config.alljs)
+        .pipe($.if(args.verbose, $.print()))
+        .pipe($.jscs())
+        .pipe($.jshint())
+        .pipe($.jshint.reporter('jshint-stylish', {verbose: true}))
+        .pipe($.jshint.reporter('fail'));
 });
 
 /////////
