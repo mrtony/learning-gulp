@@ -29,7 +29,8 @@ Note
 2. 執行`bower install`安裝所有套件
 3. wiredep會依據套件中的`bower.json`的`main`參數, 決定要引入的檔案
 4. 若main中的定義無法引入bootstrap.css, 表示沒有定義css, 要在我們的bower.json定義`override`來取代, 才有辦法使用wiredep引入
-5. bower還可以在安裝好新的套件時, 執行script的hook. 在`.bowerrc`中定義就可以了.
+5. bower還可以在安裝好新的套件後, 執行script的hook. 在`.bowerrc`中定義就可以了.
+6. bower還可以在解除安裝套件後, 執行script的hook. 在`.bowerrc`中定義就可以了.
 
 index.html中要定義好區塊讓wiredep作插入
 ```
@@ -62,7 +63,8 @@ bootstrap的bower.json - 沒有定義bootstrap.css檔
 {
   "directory": "bower_components",
   "scripts": {
-    "postinstall": "gulp wiredep"
+    "postinstall": "gulp wiredep",
+    "postuninstall": "gulp wiredep"
   }
 }
 ```
@@ -71,4 +73,10 @@ bootstrap的bower.json - 沒有定義bootstrap.css檔
 ### gulp-inject
 引入我們自己寫的js, css檔案.
 
-
+index.html中要定義好區塊讓gulp-inject作插入
+```
+<!-- inject:css -->
+<!-- endinject -->
+<!-- inject:js -->
+<!-- endinject -->
+```

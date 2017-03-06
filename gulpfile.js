@@ -13,7 +13,7 @@ gulp.task('wiredep', function() {
   gulp
   .src(config.index)
   .pipe(wiredep(options))
-  //.pipe($.inject(gulp.src(config.js)))
+  .pipe($.inject(gulp.src(config.js)))
   .pipe(gulp.dest(config.client));
   
   console.log($.util.colors.green('******end wiredep injection******'));
